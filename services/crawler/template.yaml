@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  CrawlerFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: app.handler
+      Runtime: python3.9
+      MemorySize: 512
+      Timeout: 300
+      Policies:
+        - AWSLambdaBasicExecutionRole
+      Events:
+        CrawlApi:
+          Type: Api
+          Properties:
+            Path: /crawl
+            Method: post
+
+Outputs:
+  CrawlApi:
+    Description: "Invoke URL for the crawler API"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/crawl"
+

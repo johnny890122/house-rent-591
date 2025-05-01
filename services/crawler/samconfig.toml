@@ -1,0 +1,11 @@
+version = 0.1
+[default.deploy.parameters]
+stack_name = "house-rent-591-crawler"
+resolve_s3 = true
+s3_prefix = "house-rent-591-crawler"
+region = "us-east-1"
+profile = "house-rent-591-crawler"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+disable_rollback = true
+image_repositories = []

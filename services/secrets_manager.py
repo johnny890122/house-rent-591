@@ -55,13 +55,5 @@ class SecretsManager:
             raise KeyError(f"Key {key} not found in secrets")
 
     @property
-    def mongo_uri(self) -> str:
-        return self.get("MONGO_URI")
-
-    @property
-    def line_token(self) -> str:
-        return self.get("LINE_TOKEN")
-
-    @property
     def db_connection(self) -> dict:
         return self.get("DB_CONNECTIONS")
